@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Fashion Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Fashion Hub</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/customer-dashboard" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-home"></i> Home</a>
+                    <a href="/products" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-gift"></i> Products</a>
+                    <a href="/cart" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    <a href="/my-orders" class="text-gray-700 hover:text-indigo-600">My Orders</a>
+                    <a href="/profile" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-user"></i> Profile</a>
+                    <a href="/support" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-question-circle"></i> Support</a>
+                    <a href="/logout" class="text-gray-700 hover:text-indigo-600">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Customer Support</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
+                <form action="/submit-support" method="post" class="space-y-6">
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                        <input type="text" id="subject" name="subject" required
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="6" required
+                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                    </div>
+                    <button type="submit" 
+                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-6">Frequently Asked Questions</h3>
+                <div class="space-y-6">
+                    <div class="border-b pb-4">
+                        <h4 class="text-lg font-medium text-gray-900 mb-2">How do I track my order?</h4>
+                        <p class="text-gray-600">You can track your order by going to 'My Orders' section and clicking on the order number. You'll see real-time updates on your order status.</p>
+                    </div>
+                    <div class="border-b pb-4">
+                        <h4 class="text-lg font-medium text-gray-900 mb-2">What is your return policy?</h4>
+                        <p class="text-gray-600">We offer a 30-day return policy for most items. Items must be unworn and in original packaging with tags attached.</p>
+                    </div>
+                    <div class="border-b pb-4">
+                        <h4 class="text-lg font-medium text-gray-900 mb-2">How do I find my size?</h4>
+                        <p class="text-gray-600">Each product page includes a detailed size guide. You can also chat with our support team for personalized sizing advice.</p>
+                    </div>
+                    <div class="pb-4">
+                        <h4 class="text-lg font-medium text-gray-900 mb-2">What payment methods do you accept?</h4>
+                        <p class="text-gray-600">We accept all major credit cards, PayPal, and various digital payment methods. All transactions are secure and encrypted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="mt-12 bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-6">Additional Ways to Reach Us</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-2xl text-indigo-600"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-900">Email</h4>
+                        <p class="text-gray-600">support@fashionhub.com</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone text-2xl text-indigo-600"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-900">Phone</h4>
+                        <p class="text-gray-600">1-800-FASHION</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-clock text-2xl text-indigo-600"></i>
+                    <div>
+                        <h4 class="font-medium text-gray-900">Hours</h4>
+                        <p class="text-gray-600">Mon-Fri: 9AM - 6PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

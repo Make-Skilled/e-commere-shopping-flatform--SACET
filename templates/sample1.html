@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Hub - Your Ultimate Fashion Destination</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../static/style0.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="text-2xl font-bold text-indigo-600">Fashion Hub</div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-indigo-600">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-indigo-600">About</a>
+                        <a href="#categories" class="text-gray-700 hover:text-indigo-600">Categories</a>
+                        <a href="#contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header id="home" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Fashion Hub</h1>
+                <p class="text-xl md:text-2xl">Discover Your Perfect Style</p>
+            </div>
+        </header>
+
+        <section id="about" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Elevate Your Wardrobe</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Experience fashion that speaks to your personality. From casual wear to formal attire, we offer a curated collection of the latest trends and timeless classics.</p>
+            </div>
+        </section>
+
+        <section id="categories" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Shop By Category</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <a href="/men-shirts" class="group">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
+                            <img src="../static/men-shirts.jpg" alt="Men's Shirts" class="w-full h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Men's Shirts</h3>
+                                <p class="text-gray-600">Classic & Casual Shirts</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/women-dresses" class="group">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
+                            <img src="../static/women-dresses.jpg" alt="Women's Dresses" class="w-full h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Women's Dresses</h3>
+                                <p class="text-gray-600">Elegant & Stylish Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/kids-wear" class="group">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
+                            <img src="../static/kids-wear.jpg" alt="Kids Wear" class="w-full h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Kids Wear</h3>
+                                <p class="text-gray-600">Comfortable & Cute Styles</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/accessories" class="group">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
+                            <img src="../static/accessories.jpg" alt="Accessories" class="w-full h-64 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-900">Accessories</h3>
+                                <p class="text-gray-600">Complete Your Look</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Our Fashion Philosophy</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We believe in making fashion accessible to everyone. Our carefully curated collections combine quality, style, and affordability to help you express your unique personality.</p>
+            </div>
+        </section>
+
+        <div id="contact" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Customer Login</h2>
+                        <a href="/customer" class="block w-full bg-indigo-600 text-white text-center py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">Login as Customer</a>
+                        <p class="mt-4 text-gray-600">Don't have an account? <a href="/customer-singup" class="text-indigo-600 hover:text-indigo-800">Sign Up</a></p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Seller Login</h2>
+                        <a href="/seller1-login" class="block w-full bg-indigo-600 text-white text-center py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">Login as Seller</a>
+                        <p class="mt-4 text-gray-600">Don't have an account? <a href="/seller-signup" class="text-indigo-600 hover:text-indigo-800">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
