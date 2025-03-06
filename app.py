@@ -252,6 +252,7 @@ def orders():
     
     # Get all orders
     all_orders = orders1.find()
+    # print(list(all_orders))
     
     for order in all_orders:
         # Check if any product in the order belongs to this seller
@@ -264,7 +265,8 @@ def orders():
                 'customer_name': order['name'],
                 'date': order['created_at'],
                 'status': order['status'],
-                'products': seller_products
+                'products': seller_products,
+                'total_amount': order['total_amount']
             }
             seller_orders.append(order_info)
             
@@ -273,12 +275,20 @@ def orders():
 
 @app.route("/order-details/<order_id>")
 def order_details(order_id):
+    print(order_id)
     if 'username' not in session:
         return redirect("/")
-    order = orders1.find_one({'_id': ObjectId(order_id)})
-    if order:
-        return render_template("order-details.html", order=order)
-    return redirect("/orders")
+    try:
+        # Only try to convert to ObjectId if it looks like a valid hex string
+        if len(order_id) == 24 and all(c in '0123456789abcdefABCDEF' for c in order_id):
+            order = orders1.find_one({'_id': ObjectId(order_id)})
+            print(order)
+            return render_template("order-details.html", order=order)
+        else:
+            return "Invalid order ID", 400
+    except Exception as e:
+        print(f"Error: {e}")
+        return "Invalid order ID", 400
 
 @app.route("/update-order-status/<order_id>", methods=['POST'])
 def update_order_status(order_id):
@@ -417,7 +427,7 @@ def orderform():
 @app.route("/order-confirmation/<order_id>")
 def order_confirmation(order_id):
     order = orders1.find_one({'_id': ObjectId(order_id)})
-    return render_template("order-confirmation.html", order=order)
+    return render_template("order-confirmation.html", order=order,)
 
 @app.route("/my-orders")
 def my_orders():

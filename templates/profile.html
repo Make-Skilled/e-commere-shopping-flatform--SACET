@@ -4,77 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Fashion Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            color: #4a5568;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .navbar a {
+            color: #4a5568;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #4299e1;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .profile-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-header h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .profile-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .profile-section h3 {
+            color: #2d3748;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-group i {
+            color: #4299e1;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2b6cb0;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-indigo-600">Fashion Hub</h1>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="/seller-dashboard" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-home"></i> Home</a>
-                    <a href="/manage-products" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-box"></i> Manage Products</a>
-                    <a href="/orders" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-shopping-cart"></i> Orders</a>
-                    <a href="/earnings" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-dollar-sign"></i> Earnings</a>
-                    <a href="/profile" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-user"></i> Profile</a>
-                    <a href="/support" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-question-circle"></i> Support</a>
-                    <a href="/logout" class="text-gray-700 hover:text-indigo-600">Logout</a>
-                </div>
-            </div>
-        </div>
+<body>
+    <nav class="navbar">
+        <h1><i class="fas fa-store"></i> Fashion Hub</h1>
+        <ul>
+            <li><a href="/seller-dashboard"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/manage-products"><i class="fas fa-box"></i> Manage Products</a></li>
+            <li><a href="/orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li><a href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="/support"><i class="fas fa-question-circle"></i> Support</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Your Profile</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-semibold mb-4">Profile Information</h3>
-                <div class="space-y-4">
-                    <p class="flex items-center text-gray-700">
-                        <i class="fas fa-user w-6"></i>
-                        <span class="ml-2">{{ user.Name if user else 'Not Available' }}</span>
-                    </p>
-                    <p class="flex items-center text-gray-700">
-                        <i class="fas fa-phone w-6"></i>
-                        <span class="ml-2">{{ user.phone if user else 'Not Available' }}</span>
-                    </p>
-                    <p class="flex items-center text-gray-700">
-                        <i class="fas fa-map-marker-alt w-6"></i>
-                        <span class="ml-2">{{ user.address if user else 'Not Available' }}</span>
-                    </p>
-                    
-                </div>
+    <div class="content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h2><i class="fas fa-user-circle"></i> Your Profile</h2>
+                {% if user %}
+                <span class="profile-status">Active Account</span>
+                {% endif %}
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-semibold mb-4">Edit Profile</h3>
-                <form action="/update-profile" method="post" class="space-y-4">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="name" name="name" value="{{ user.Name if user else '' }}" 
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <div class="profile-grid">
+                <div class="profile-section">
+                    <h3><i class="fas fa-info-circle"></i> Profile Information</h3>
+                    <div class="info-group">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <strong>Name</strong>
+                            <p>{{ user.Name if user else 'Not Available' }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                        <input type="text" id="phone" name="phone" value="{{ user.phone if user else '' }}"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <div class="info-group">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>{{ user.Email if user else 'Not Available' }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                        <input type="text" id="address" name="address" value="{{ user.address if user else '' }}"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <div class="info-group">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>{{ user.phone if user else 'Not Available' }}</p>
+                        </div>
                     </div>
-                    <button type="submit" 
-                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                        Update Profile
-                    </button>
-                </form>
+                    <div class="info-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address</strong>
+                            <p>{{ user.address if user else 'Not Available' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3><i class="fas fa-edit"></i> Edit Profile</h3>
+                    <form action="/update-profile" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" 
+                                   value="{{ user.Name if user else '' }}" 
+                                   class="form-control" 
+                                   placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   value="{{ user.phone if user else '' }}" 
+                                   class="form-control" 
+                                   placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" 
+                                      class="form-control" 
+                                      rows="3" 
+                                      placeholder="Enter your address">{{ user.address if user else '' }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update Profile
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <script src="../static/seller-dashboard.js"></script>
 </body>
 </html>

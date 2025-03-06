@@ -4,103 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion Hub - Categories</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #4a5568;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #4a5568;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #4299e1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h2 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        .category-content h3 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-content p {
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .category-image {
+                height: 240px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-indigo-600">Fashion Hub</h1>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="/customer-dashboard" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-home"></i> Home</a>
-                    <a href="/products" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-gift"></i> Products</a>
-                    <a href="/ratings" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-star"></i> Ratings</a>
-                    <a href="/about" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-info-circle"></i> About</a>
-                    <a href="/contact" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-envelope"></i> Contact</a>
-                    <a href="/cart" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-shopping-cart"></i> Cart</a>
-                    <a href="/my-orders" class="text-gray-700 hover:text-indigo-600">My Orders</a>
-                    <a href="/logout" class="text-gray-700 hover:text-indigo-600">Logout</a>
-                </div>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <h1><i class="fas fa-store"></i> Fashion Hub</h1>
+            <div class="nav-links">
+                <a href="/customer-dashboard"><i class="fas fa-home"></i> Home</a>
+                <a href="/products"><i class="fas fa-gift"></i> Products</a>
+                <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="/my-orders"><i class="fas fa-box"></i> My Orders</a>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Shop By Category</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <a href="/men-shirts" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/men-shirts.jpg" alt="Men's Shirts" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Men's Shirts</h3>
-                        <p class="text-gray-600">Classic & Casual Shirts</p>
-                    </div>
+    <div class="container">
+        <div class="page-header">
+            <h2>Shop By Category</h2>
+            <p>Discover our wide range of fashion categories</p>
+        </div>
+
+        <div class="categories-grid">
+            <a href="/men-shirts" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/men-shirts.jpg') }}" alt="Men's Shirts" onerror="this.src='https://via.placeholder.com/400x400?text=Men%27s+Shirts'">
+                </div>
+                <div class="category-content">
+                    <h3>Men's Shirts</h3>
+                    <p>Classic & Casual Shirts</p>
                 </div>
             </a>
-            <a href="/men-pants" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/men-pants.jpg" alt="Men's Pants" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Men's Pants</h3>
-                        <p class="text-gray-600">Formal & Casual Pants</p>
-                    </div>
+
+            <a href="/men-pants" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/men-pants.jpg') }}" alt="Men's Pants" onerror="this.src='https://via.placeholder.com/400x400?text=Men%27s+Pants'">
+                </div>
+                <div class="category-content">
+                    <h3>Men's Pants</h3>
+                    <p>Formal & Casual Pants</p>
                 </div>
             </a>
-            <a href="/t-shirts" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/t-shirts.jpg" alt="T-Shirts" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">T-Shirts</h3>
-                        <p class="text-gray-600">Trendy T-Shirts</p>
-                    </div>
+
+            <a href="/t-shirts" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/t-shirts.jpg') }}" alt="T-Shirts" onerror="this.src='https://via.placeholder.com/400x400?text=T-Shirts'">
+                </div>
+                <div class="category-content">
+                    <h3>T-Shirts</h3>
+                    <p>Trendy T-Shirts</p>
                 </div>
             </a>
-            <a href="/women-dresses" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/women-dresses.jpg" alt="Women's Dresses" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Women's Dresses</h3>
-                        <p class="text-gray-600">Elegant Dresses</p>
-                    </div>
+
+            <a href="/women-dresses" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/women-dresses.jpg') }}" alt="Women's Dresses" onerror="this.src='https://via.placeholder.com/400x400?text=Women%27s+Dresses'">
+                </div>
+                <div class="category-content">
+                    <h3>Women's Dresses</h3>
+                    <p>Elegant Dresses</p>
                 </div>
             </a>
-            <a href="/kids-wear" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/kids-wear.jpg" alt="Kids Wear" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Kids Wear</h3>
-                        <p class="text-gray-600">Comfortable & Cute</p>
-                    </div>
+
+            <a href="/kids-wear" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/kids-wear.jpg') }}" alt="Kids Wear" onerror="this.src='https://via.placeholder.com/400x400?text=Kids+Wear'">
+                </div>
+                <div class="category-content">
+                    <h3>Kids Wear</h3>
+                    <p>Comfortable & Cute</p>
                 </div>
             </a>
-            <a href="/footwear" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/footwear.jpg" alt="Footwear" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Footwear</h3>
-                        <p class="text-gray-600">Shoes & Sandals</p>
-                    </div>
+
+            <a href="/footwear" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/footwear.jpg') }}" alt="Footwear" onerror="this.src='https://via.placeholder.com/400x400?text=Footwear'">
+                </div>
+                <div class="category-content">
+                    <h3>Footwear</h3>
+                    <p>Shoes & Sandals</p>
                 </div>
             </a>
-            <a href="/shorts" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/shorts.jpg" alt="Shorts" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Shorts</h3>
-                        <p class="text-gray-600">Casual Shorts</p>
-                    </div>
+
+            <a href="/shorts" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/shorts.jpg') }}" alt="Shorts" onerror="this.src='https://via.placeholder.com/400x400?text=Shorts'">
+                </div>
+                <div class="category-content">
+                    <h3>Shorts</h3>
+                    <p>Casual Shorts</p>
                 </div>
             </a>
-            <a href="/accessories" class="group">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
-                    <img src="../static/accessories.jpg" alt="Accessories" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Accessories</h3>
-                        <p class="text-gray-600">Complete Your Look</p>
-                    </div>
+
+            <a href="/accessories" class="category-card">
+                <div class="category-image">
+                    <img src="{{ url_for('static', filename='images/categories/accessories.jpg') }}" alt="Accessories" onerror="this.src='https://via.placeholder.com/400x400?text=Accessories'">
+                </div>
+                <div class="category-content">
+                    <h3>Accessories</h3>
+                    <p>Complete Your Look</p>
                 </div>
             </a>
         </div>

@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Sample data for product list
     const productData = [
-        { image: 'pottery.jpg', name: 'Handmade Pottery', category: 'Pottery', price: '₹45.00', stock: '10' },
-        { image: 'earring.jpg', name: 'Artisan Jewelry', category: 'Jewelry', price: '₹30.00', stock: '20' },
-        { image: 'wooden.jpg', name: 'Wooden Crafts', category: 'Woodcraft', price: '₹60.00', stock: '5' }
+        { image: '../static/pottery.jpg', name: 'Handmade Pottery', category: 'Pottery', price: '₹45.00', stock: '10' },
+        { image: '../static/earring.jpg', name: 'Artisan Jewelry', category: 'Jewelry', price: '₹30.00', stock: '20' },
+        { image: '../static/wooden.jpg', name: 'Wooden Crafts', category: 'Woodcraft', price: '₹60.00', stock: '5' }
     ];
 
     const tableBody = document.getElementById('product-table-body');
