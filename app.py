@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 from datetime import datetime
 
-cluster=MongoClient("127.0.0.1:27017")
+cluster=MongoClient("mongodb+srv://sudheer:sudheer@cluster0.g6wqp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db=cluster['bvc']
 customers=db['customers']
 uses=db['uses']
@@ -582,4 +582,4 @@ def view_products():
     return render_template("products.html", data=data, l=len(data))
 
 if __name__=="__main__":
-    app.run(port=6010,debug=True,host='0.0.0.0')
+    app.run(port=5000,debug=True,host='0.0.0.0')
