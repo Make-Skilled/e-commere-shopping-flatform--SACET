@@ -582,4 +582,4 @@ def view_products():
     return render_template("products.html", data=data, l=len(data))
 
 if __name__=="__main__":
-    app.run(port=6010,debug=True)
+    app.run(port=6010,debug=True,host='0.0.0.0')
